@@ -13,6 +13,6 @@
         "func-names": ["error", "as-needed"],
         "padded-blocks": 0,
         "no-restricted-syntax": 0,
-        "max-len": 0
+        "max-len": 0,
     },
 }
