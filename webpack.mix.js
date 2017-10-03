@@ -17,7 +17,7 @@ mix.js('./src/index.js', './dist')
    .browserSync({
        proxy: 'localhost:8080',
        files: [
-           './src/**/*.(js|vue)',
+           './src/**/*.(js|vue|scss)',
        ],
        reloadDelay: 300,
    });
