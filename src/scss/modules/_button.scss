@@ -1,33 +1,47 @@
-@mixin button-bg($bg, $width: 15rem) {
-    background: $bg;
-    padding: 1rem 0;
-    max-width: $width;
-    width: 100%;
-    border: 0;
-
-    &:hover {
-        background: darken($bg, 8%);
-        transition: all 0.3s ease;
-    }
-
+@mixin button($color: #fff, $border-color: #fff, $padding-sides: 1.15em) {
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: none;
+    padding-bottom: calc(0.375em - 1px);
+    padding-top: calc(0.375em - 1px);
+    position: relative;
+    vertical-align: middle;
+    user-select: none;
+    background-color: $color;
+    border-color: mix($border-color, #000000, 100%);
+    cursor: pointer;
+    padding-left: $padding-sides;
+    padding-right: $padding-sides;
+    text-align: center;
+    white-space: nowrap;
+    transition: box-shadow 0.2s;
+    
+    &:focus,
     &:active {
-        background: darken($bg, 25%);
+        outline: none;
     }
-}
-
-@mixin button-lite($bg, $width: 15rem) {
-    background: transparent;
-    padding: 0.82rem 0;
-    max-width: $width;
-    width: 100%;
-    border: 0.2rem solid $bg;
-
+    
+    &[disabled] {
+        cursor: not-allowed;
+        background-color: mix($color, #fff, 40%);
+        border-color: mix($color, #fff, 40%);
+        
+        &:hover,
+        &:active {
+            background-color: mix($color, #fff, 40%);
+            border-color: mix($color, #fff, 40%);
+            box-shadow: initial;
+        }
+    }
+    
     &:hover {
-        border: 3px solid darken($bg, 8%);
-        transition: all 0.3s ease;
+        border-color: mix($border-color, #000000, 90%);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     }
-
+    
     &:active {
-        border: 3px solid darken($bg, 25%);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     }
+    
 }

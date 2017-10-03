@@ -1,0 +1,64 @@
+.tree {
+    transition: all 1s ease;
+    
+    .emerge-roots {
+        position: relative;
+        display: block;
+        @include margin-bottom(1);
+        
+        button {
+            @include size(p);
+            @include button(color($brown, 400), color($brown, 600));
+            @include margin-bottom(0.25);
+            color: white;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        
+        progress {
+            @include progress(color($brown, 300));
+            float: right;
+        }
+        
+    }
+    
+    .gather-nutrients {
+        position: relative;
+        display: block;
+        @include margin-bottom(1);
+        
+        button {
+            @include size(p);
+            @include button(color($light-green, 400), color($light-green, 600));
+            @include margin-bottom(0.25);
+            color: white;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        
+        progress {
+            @include progress(color($light-green, 300));
+        }
+        
+    }
+    
+    .grow-roots {
+        position: relative;
+        display: block;
+        @include margin-bottom(1);
+        
+        button {
+            @include size(p);
+            @include button(color($brown, 400), color($brown, 600));
+            @include margin-bottom(0.25);
+            color: white;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        
+        progress {
+            @include progress(color($brown, 300));
+        }
+        
+    }
+}

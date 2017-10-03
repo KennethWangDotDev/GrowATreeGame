@@ -1,0 +1,27 @@
+.resources {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    color: #4a4a4a;
+    display: inline-block;
+    padding: 1.25rem;
+    width: 25%;
+    margin-right: 2rem;
+    
+    .title {
+        @include size(h6);
+        @include margin-bottom(0.5);
+        font-weight: 500;
+    }
+    
+    .resource-row td:nth-child(1) {
+        text-align: left;
+        padding-bottom: 0.25rem;
+    }
+    
+    .resource-row td:nth-child(2) {
+        text-align: right;
+        padding-bottom: 0.25rem;
+    }
+}
+

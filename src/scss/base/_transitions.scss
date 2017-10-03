@@ -1,0 +1,45 @@
+/*===============================
+=            Plant Seed           =
+===============================*/
+.plant-seed-enter,
+.plant-seed-leave-to {
+    opacity: 0;
+}
+
+.plant-seed-enter-active {
+    transition: opacity 1s ease-out;
+}
+
+.plant-seed-leave-active {
+    transition: opacity 1.5s ease;
+}
+
+/*===============================
+=       Notificaitons List            =
+===============================*/
+.notifications-list-enter,
+.notifications-list-leave-to {
+    opacity: 0;
+}
+
+.notifications-list-enter-active,
+.notifications-list-leave-active {
+    transition: opacity 1s ease;
+}
+
+.notifications-list-move {
+    transition: transform 0.5s ease;
+}
+
+/*===============================
+=            Main           =
+===============================*/
+.main-enter,
+.main-leave-to {
+    opacity: 0;
+}
+
+.main-enter-active,
+.main-leave-active {
+    transition: opacity 2s ease;
+}

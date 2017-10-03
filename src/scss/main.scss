@@ -3,10 +3,21 @@
 // Base
 @import 'base/reeeset',
     'base/color',
-    'base/typography';
-
+    'base/typography',
+    'base/transitions';
+    
 // Modules
-//@import 'modules/**/*.scss';
+@import 'modules/button',
+    'modules/progress';
+
+// Components
+@import 'components/app',
+    'components/resources',
+    'components/notifications',
+    'components/tree',
+    'components/plant-seed';
+    
+
 
 // Layout
 //@import 'layout/**/*.scss';

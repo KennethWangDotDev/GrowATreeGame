@@ -14,6 +14,7 @@ const mix = require('laravel-mix');
 mix.js('./src/index.js', './dist')
    .sass('./src/scss/main.scss', './dist')
    .copy('./src/index.html', './dist')
+   .copyDirectory('./src/assets', './dist/assets')
    .browserSync({
        proxy: 'localhost:8080',
        files: [

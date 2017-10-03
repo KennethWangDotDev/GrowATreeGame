@@ -1,0 +1,19 @@
+body {
+    background-color: color($grey, 100);
+}
+
+#app {
+    padding: 2rem;
+    max-width: 75rem;
+    margin: auto;
+}
+
+.game {
+    display: flex;
+    align-items: flex-start;
+}
+
+.active {
+    flex-grow: 3;
+    padding-right: 2rem;
+}

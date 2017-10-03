@@ -2,8 +2,6 @@
 // This file contains everything related to typography.
 // -----------------------------------------------------------------------------
 $line-height: 1.4;
-$heading-font: 'Roboto', Helvetica, Arial, sans-serif;
-$body-font: 'Roboto', Helvetica, Arial, sans-serif;
 
 html,
 body {
@@ -25,119 +23,99 @@ html {
     box-sizing: inherit;
 }
 
-@mixin heading-font {
-    font-family: Arial, sans-serif;
-
-    .fonts-loaded & {
-        font-family: $heading-font;
-    }
-}
-
-@mixin body-font {
-    font-family: Arial, sans-serif;
-
-    .fonts-loaded & {
-        font-family: $body-font;
-    }
-}
-
 body {
-    @include body-font;
+    font-family: 'Helvetica Neue', Arial;
     line-height: $line-height;
     color: $body-color;
 }
 
 @font-face {
-    font-family: 'Roboto';
-    src: url('/assets/fonts/hinted-subset-Roboto-Thin.eot');
-    src: url('/assets/fonts/hinted-subset-Roboto-Thin.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/hinted-subset-Roboto-Thin.woff2') format('woff2'), url('/assets/fonts/hinted-subset-Roboto-Thin.woff') format('woff'), url('/assets/fonts/hinted-subset-Roboto-Thin.ttf') format('truetype'), url('/assets/fonts/hinted-subset-Roboto-Thin.svg#Roboto-Thin') format('svg');
-    font-weight: 100;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Roboto';
-    src: url('/assets/fonts/hinted-subset-Roboto-Medium.eot');
-    src: url('/assets/fonts/hinted-subset-Roboto-Medium.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/hinted-subset-Roboto-Medium.woff2') format('woff2'), url('/assets/fonts/hinted-subset-Roboto-Medium.woff') format('woff'), url('/assets/fonts/hinted-subset-Roboto-Medium.ttf') format('truetype'), url('/assets/fonts/hinted-subset-Roboto-Medium.svg#Roboto-Medium') format('svg');
+    font-family: 'Helvetica Neue';
+    src: url('/assets/fonts/hinted-subset-HelveticaNeue-Medium.eot');
+    src: url('/assets/fonts/hinted-subset-HelveticaNeue-Medium.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/hinted-subset-HelveticaNeue-Medium.woff2') format('woff2'),
+        url('/assets/fonts/hinted-subset-HelveticaNeue-Medium.woff') format('woff'),
+        url('/assets/fonts/hinted-subset-HelveticaNeue-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Roboto';
-    src: url('/assets/fonts/hinted-subset-Roboto-Regular.eot');
-    src: url('/assets/fonts/hinted-subset-Roboto-Regular.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/hinted-subset-Roboto-Regular.woff2') format('woff2'), url('/assets/fonts/hinted-subset-Roboto-Regular.woff') format('woff'), url('/assets/fonts/hinted-subset-Roboto-Regular.ttf') format('truetype'), url('/assets/fonts/hinted-subset-Roboto-Regular.svg#Roboto-Regular') format('svg');
+    font-family: 'Helvetica Neue';
+    src: url('/assets/fonts/hinted-subset-HelveticaNeue.eot');
+    src: url('/assets/fonts/hinted-subset-HelveticaNeue.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/hinted-subset-HelveticaNeue.woff2') format('woff2'),
+        url('/assets/fonts/hinted-subset-HelveticaNeue.woff') format('woff'),
+        url('/assets/fonts/hinted-subset-HelveticaNeue.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Roboto';
-    src: url('/assets/fonts/hinted-subset-Roboto-MediumItalic.eot');
-    src: url('/assets/fonts/hinted-subset-Roboto-MediumItalic.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/hinted-subset-Roboto-MediumItalic.woff2') format('woff2'), url('/assets/fonts/hinted-subset-Roboto-MediumItalic.woff') format('woff'), url('/assets/fonts/hinted-subset-Roboto-MediumItalic.ttf') format('truetype'), url('/assets/fonts/hinted-subset-Roboto-MediumItalic.svg#Roboto-MediumItalic') format('svg');
-    font-weight: 500;
-    font-style: italic;
+    font-family: 'Helvetica Neue';
+    src: url('/assets/fonts/hinted-subset-HelveticaNeue-Light.eot');
+    src: url('/assets/fonts/hinted-subset-HelveticaNeue-Light.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/hinted-subset-HelveticaNeue-Light.woff2') format('woff2'),
+        url('/assets/fonts/hinted-subset-HelveticaNeue-Light.woff') format('woff'),
+        url('/assets/fonts/hinted-subset-HelveticaNeue-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: 'Roboto';
-    src: url('/assets/fonts/hinted-subset-Roboto-ThinItalic.eot');
-    src: url('/assets/fonts/hinted-subset-Roboto-ThinItalic.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/hinted-subset-Roboto-ThinItalic.woff2') format('woff2'), url('/assets/fonts/hinted-subset-Roboto-ThinItalic.woff') format('woff'), url('/assets/fonts/hinted-subset-Roboto-ThinItalic.ttf') format('truetype'), url('/assets/fonts/hinted-subset-Roboto-ThinItalic.svg#Roboto-ThinItalic') format('svg');
-    font-weight: 100;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Roboto';
-    src: url('/assets/fonts/hinted-subset-Roboto-Italic.eot');
-    src: url('/assets/fonts/hinted-subset-Roboto-Italic.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/hinted-subset-Roboto-Italic.woff2') format('woff2'), url('/assets/fonts/hinted-subset-Roboto-Italic.woff') format('woff'), url('/assets/fonts/hinted-subset-Roboto-Italic.ttf') format('truetype'), url('/assets/fonts/hinted-subset-Roboto-Italic.svg#Roboto-Italic') format('svg');
-    font-weight: normal;
-    font-style: italic;
+    font-family: 'Helvetica Neue';
+    src: url('/assets/fonts/hinted-subset-HelveticaNeue-Bold.eot');
+    src: url('/assets/fonts/hinted-subset-HelveticaNeue-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/hinted-subset-HelveticaNeue-Bold.woff2') format('woff2'),
+        url('/assets/fonts/hinted-subset-HelveticaNeue-Bold.woff') format('woff'),
+        url('/assets/fonts/hinted-subset-HelveticaNeue-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
 }
 
 /* 
  * Modular scale
- * http://www.modularscale.com/?1.25&em&1.2
+ * http://www.modularscale.com/?1.05&em&1.2
 */
 $type-scale: (
-    h1: 3.732rem,
-    h2: 3.11rem,
-    h3: 2.592rem,
-    h4: 2.16rem,
-    h5: 1.8rem,
-    h6: 1.5rem,
-    p: 1.25rem,
-    small: 1.042rem
+    hero: 4.515rem,
+    h1: 3.135rem,
+    h2: 2.613em,
+    h3: 2.177rem,
+    h4: 1.814rem,
+    h5: 1.512rem,
+    h6: 1.26rem,
+    p: 1.05rem,
 );
 
 /* 
  * Modular scale
- * http://www.modularscale.com/?1.15&em&1.19
+ * http://www.modularscale.com/?1&em&1.15
 */
 $type-scale-tablet: (
-    h1: 3.266rem,
-    h2: 2.744rem,
-    h3: 2.306rem,
-    h4: 1.938rem,
-    h5: 1.626rem,
-    h6: 1.368rem,
-    p: 1.15rem,
-    small: 1rem
+    hero: 3.059rem,
+    h1: 2.313rem,
+    h2: 2.011rem,
+    h3: 1.749rem,
+    h4: 1.521rem,
+    h5: 1.322rem,
+    h6: 1.15rem,
+    p: 1rem,
 );
 
 /* 
  * Modular scale
- * http://www.modularscale.com/?1.1&em&1.25&web&text
+ * http://www.modularscale.com/?1&em&1.1
 */
 $type-scale-mobile: (
-    h1: 2.475rem,
-    h2: 2.152rem,
-    h3: 1.871rem,
-    h4: 1.627rem,
-    h5: 1.415rem,
-    h6: 1.231rem,
-    p: 1.07rem,
-    small: 0.95rem
+    hero: 2.144rem,
+    h1: 1.722rem,
+    h2: 1.611rem,
+    h3: 1.464rem,
+    h4: 1.331rem,
+    h5: 1.21rem,
+    h6: 1.1rem,
+    p: 1rem,
 );
 $breakpoint-tablet: 65em;
 $breakpoint-mobile: 35em;

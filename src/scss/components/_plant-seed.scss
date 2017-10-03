@@ -1,0 +1,41 @@
+.plant-seed {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    
+    .title {
+        @include size(hero);
+        color: color($green, 800);
+        font-weight: 300;
+        
+    }
+    
+    .subtitle {
+        @include size(h3);
+        color: color($grey, 500);
+        font-weight: 300;
+        
+        text-transform: uppercase;
+        letter-spacing: 0.15rem;
+        
+        @include margin-bottom(0.5);
+    }
+    
+    .desc {
+        font-weight: 300;
+        @include size(h5);
+        @include margin-bottom(1.5);
+        
+        span {
+            font-weight: 500;
+        }
+    }
+    
+    button {
+        @include size(h5);
+        @include button(color($green), color($green, 800), 3em);
+        color: color($grey, 200);
+    }
+}

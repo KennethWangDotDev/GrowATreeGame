@@ -1,0 +1,24 @@
+@mixin progress($color: #4a4a4a) {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: 0;
+    border-radius: 5000px;
+    display: inline-block;
+    height: 1.75rem;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    vertical-align: middle;
+
+    &::-webkit-progress-bar {
+        background-color: #dbdbdb;
+    }
+
+    &::-webkit-progress-value {
+        background-color: $color;
+    }
+
+    &::-moz-progress-bar {
+        background-color: $color;
+    }
+}
