@@ -24,13 +24,13 @@
     
     &[disabled] {
         cursor: not-allowed;
-        background-color: mix($color, #fff, 40%);
-        border-color: mix($color, #fff, 40%);
+        background-color: mix($color, #fff, 60%);
+        border-color: mix($color, #fff, 60%);
         
         &:hover,
         &:active {
-            background-color: mix($color, #fff, 40%);
-            border-color: mix($color, #fff, 40%);
+            background-color: mix($color, #fff, 60%);
+            border-color: mix($color, #fff, 60%);
             box-shadow: initial;
         }
     }

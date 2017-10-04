@@ -4,11 +4,7 @@
         <table>
             <tbody>
                 <tr class="resource-row">
-                    <td>Nutrient</td>
-                    <td>{{ nutrients }}</td>
-                </tr>
-                <tr class="resource-row">
-                    <td>Nutrient</td>
+                    <td>Nutrients</td>
                     <td>{{ nutrients }}</td>
                 </tr>
             </tbody>

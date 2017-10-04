@@ -1,4 +1,5 @@
 import store from './store';
+const DEV_MODE = true;
 
 window.setInterval(() => {
     
@@ -13,7 +14,12 @@ window.setInterval(() => {
             // If the resource is running
             if (progress[progressName].progress_bar.running) {
                 // Then add progress based off of the increment amount
-                store.commit('ADD_PROGRESS', {progressName, amount: progress[progressName].progress_bar.increment});
+                if (DEV_MODE) {
+                    store.commit('ADD_PROGRESS', {progressName, amount: progress[progressName].progress_bar.increment * 3});
+                } else {
+                    store.commit('ADD_PROGRESS', {progressName, amount: progress[progressName].progress_bar.increment});
+                }
+                
                 if (progress[progressName].progress_bar.value >= 100) {
                     // Tells our store when finished
                     store.dispatch('finishGather', progressName);

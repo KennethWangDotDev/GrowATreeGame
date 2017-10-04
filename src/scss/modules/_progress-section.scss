@@ -1,0 +1,49 @@
+@mixin progress-section($color) {
+    @include margin-bottom(1);
+    position: relative;
+    display: block;
+    background-color: color($color, 100);
+    padding: 2rem;
+    transition: box-shadow 0.3s ease;
+    &:hover {
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    }
+    
+    button {
+        @include size(p);
+        @include button(color($color, 400), color($color, 600));
+        @include margin-bottom(0.25);
+        font-weight: 300;
+        color: white;
+        display: inline-block;
+        margin-right: 0.5rem;
+    }
+    
+    .cost {
+        @include size(p);
+        font-weight: 500;
+        display: inline-block;
+        color: color($color, 700);
+    }
+    
+    .desc {
+        @include margin-bottom(0.25);
+        font-weight: 300;
+        color: color($color, 900);
+    }
+    
+    progress {
+        @include progress(color($color), color($color, 200));
+        @include margin-bottom(0.25);
+    }
+    
+    .speed {
+        position: absolute;
+        font-size: 0.9rem;
+        bottom: 0.75rem;
+        right: 2rem;
+        text-align: right;
+        font-weight: 300;
+        color: color($color, 700);
+    }
+}
