@@ -1,19 +1,19 @@
 .tree {
     transition: all 1s ease;
     
-    .emerge-roots {
+    .emerge_roots {
         @include progress-section($brown);
     }
     
-    .gather-nutrients {
+    .gather_nutrients {
         @include progress-section($light-green);
     }
     
-    .grow-roots {
+    .grow_roots {
         @include progress-section($brown);
     }
     
-    .grow-bigger {
+    .grow_bigger {
         @include progress-section($blue);
     }
 }
