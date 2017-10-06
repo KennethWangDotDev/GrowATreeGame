@@ -6,6 +6,7 @@
             :unlock="'roots_emerged'"
             :unlockValue="0"
             :label="'Emerge Roots'"
+            :cost="0"
             :speed="0">
         </ProgressSection>
         
@@ -15,6 +16,7 @@
             :unlockValue="1"
             :label="'Gather Nutrients'"
             :desc="'Increases your nutrients count.'"
+            :cost="0"
             :speed="1">
         </ProgressSection>
         
@@ -24,6 +26,7 @@
             :unlockValue="1"
             :label="'Grow Roots'"
             :desc="'Decreases the time it takes to gather nutrients.'"
+            :cost="1"
             :speed="1">
         </ProgressSection>
         
@@ -33,6 +36,7 @@
             :unlockValue="1"
             :label="'Grow Roots'"
             :desc="'Increases the size of your tree.'"
+            :cost="1"
             :speed="1">
         </ProgressSection>
         
