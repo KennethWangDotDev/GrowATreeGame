@@ -1,0 +1,55 @@
+.main-nav {
+    @include margin-bottom(1);
+    
+    .nav-box {
+        display: inline-block;
+        position: relative;
+        padding: 0.5rem;
+        margin-right: 0.5rem;
+        line-height: 0;
+        
+        @include size(h6);
+        border: 1px solid color($grey, 500);
+        border-radius: 3px;
+        background-color: white;
+        
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.10), 0 1px 1px rgba(0, 0, 0, 0.14);
+        transition: all 0.07s ease;
+        
+        &:focus,
+        &:active {
+            outline: none;
+        }
+        
+        &.active {
+            border: 2px solid color($light-green, 400);
+            
+            &:hover {
+                box-shadow: 0 3px 4px rgba(156, 204, 101, 0.32), 0 3px 4px rgba(156, 204, 101, 0.46);
+            }
+        }
+        
+        &:hover {
+            box-shadow: 0 3px 4px rgba(0, 0, 0, 0.16), 0 3px 4px rgba(0, 0, 0, 0.23);
+        }
+        
+        &:active {
+            transform: translateY(-0.2rem);
+        }
+    }
+    
+    
+    .fa-tree-alt {
+        color: color($light-green, 900);
+    }
+    
+    .fa-leaf {
+        color: color($green, 600);
+    }
+    
+    .fa-flask {
+        color: color($blue);
+    }
+    
+    
+}

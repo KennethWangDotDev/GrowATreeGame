@@ -3,13 +3,27 @@
     position: relative;
     display: block;
     background-color: color($color, 100);
-    padding: 2rem;
     transition: box-shadow 0.3s ease;
     &:hover {
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     }
     
-    button {
+    .main {
+        padding: 2rem;
+        padding-bottom: 1rem;
+        
+        @media (max-width: $breakpoint-tablet) {
+            padding: 1.66rem;
+            padding-bottom: 0.75rem;
+        }
+
+        @media (max-width: $breakpoint-mobile) {
+            padding: 1.35rem;
+            padding-bottom: 0.66rem;
+        }
+    }
+    
+    .main-button {
         @include size(p);
         @include button(color($color, 400), color($color, 600));
         @include margin-bottom(0.25);
@@ -33,17 +47,72 @@
     }
     
     progress {
-        @include progress(color($color), color($color, 200));
+        @include progress(color($color, 400), color($color, 200));
         @include margin-bottom(0.25);
     }
     
     .speed {
-        position: absolute;
         font-size: 0.9rem;
-        bottom: 0.75rem;
-        right: 2rem;
         text-align: right;
-        font-weight: 300;
         color: color($color, 700);
+    }
+    
+    .toggle-content {
+        display: flex;
+    }
+    
+    .upgrade {
+        flex: 1 1 5rem;
+        border-right: 1px solid color($color, 200);
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        margin-top: 1rem;
+        
+        &:last-child {
+            border-right: none;
+        }
+    }
+    
+    .upgrade__button {
+        font-size: 0.9rem;
+        @include button(color($color, 600), color($color, 800));
+        margin: auto;
+        max-width: 17rem;
+        width: 100%;
+        @include margin-bottom(0.5);
+        font-weight: 300;
+        color: white;
+        display: block;
+    }
+    
+    .upgrade__desc {
+        color: color($color, 700);
+        font-size: 0.9rem;
+        line-height: 1;
+        text-align: center;
+    }
+    
+    .upgrade__cost {
+        display: block;
+    }
+    
+    .upgrade__currency {
+        display: block;
+    }
+    
+    .toggle {
+        border-top: 1px solid color($color, 300);
+        color: color($color, 600);
+        text-align: center;
+        background-color: color($color, 200);
+        
+        span {
+            position: relative;
+            bottom: 2px;
+        }
+    }
+    
+    .padding-if-no-upgrades {
+        padding-bottom: 0.5rem;
     }
 }

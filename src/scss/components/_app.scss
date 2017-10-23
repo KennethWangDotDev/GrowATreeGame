@@ -4,8 +4,16 @@ body {
 
 #app {
     padding: 2rem;
-    max-width: 75rem;
+    max-width: 85rem;
     margin: auto;
+    
+    @media (max-width: $breakpoint-tablet) {
+        padding: 1rem;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        padding: 0.35rem;
+    }
 }
 
 .game {
@@ -13,7 +21,23 @@ body {
     align-items: flex-start;
 }
 
+.resources {
+    flex: 1 1 20rem;
+}
+
 .active {
-    flex-grow: 3;
+    flex: 2 1 45rem;
     padding-right: 2rem;
+    
+    @media (max-width: $breakpoint-tablet) {
+        padding-right: 1rem;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        padding-right: 0.35rem;
+    }
+}
+
+.notifications {
+    flex: 1 1 20rem;
 }

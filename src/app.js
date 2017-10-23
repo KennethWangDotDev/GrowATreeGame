@@ -3,7 +3,7 @@ import { sync } from 'vuex-router-sync';
 import App from './views/App.vue';
 import router from './router';
 import store from './store';
-import gameloop from './gameloop'
+import js from './js/import';
 
 sync(store, router);
 

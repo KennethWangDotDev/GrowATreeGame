@@ -15,30 +15,31 @@
             :unlock="'roots_emerged'"
             :unlockValue="1"
             :label="'Gather Nutrients'"
-            :desc="'Increases your nutrients count.'"
             :cost="0"
             :speed="1">
         </ProgressSection>
         
-        <ProgressSection 
-            :progress="'grow_roots'"
-            :unlock="'unlock_grow_roots'"
-            :unlockValue="1"
-            :label="'Grow Roots'"
-            :desc="'Decreases the time it takes to gather nutrients.'"
-            :cost="1"
-            :speed="1">
-        </ProgressSection>
+        <transition name="main">
+            <ProgressSection 
+                :progress="'grow_cells'"
+                :unlock="'cells'"
+                :unlockValue="1"
+                :label="'Grow Cells'"
+                :cost="1"
+                :speed="1">
+            </ProgressSection>
+        </transition>
         
-        <ProgressSection 
-            :progress="'grow_bigger'"
-            :unlock="'unlock_grow_bigger'"
-            :unlockValue="1"
-            :label="'Grow Roots'"
-            :desc="'Increases the size of your tree.'"
-            :cost="1"
-            :speed="1">
-        </ProgressSection>
+        <transition name="main">
+            <ProgressSection 
+                :progress="'gain_energy'"
+                :unlock="'energy'"
+                :unlockValue="1"
+                :label="'Gain Energy'"
+                :cost="1"
+                :speed="1">
+            </ProgressSection>
+        </transition>
         
     </div>
 </template>

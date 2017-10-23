@@ -8,6 +8,16 @@
     width: 25%;
     margin-right: 2rem;
     
+    @media (max-width: $breakpoint-tablet) {
+        padding: 1.66rem;
+        margin-right: 1rem;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        padding: 0.35rem;
+        margin-right: 0.5rem;
+    }
+    
     .title {
         @include size(h6);
         @include margin-bottom(0.5);

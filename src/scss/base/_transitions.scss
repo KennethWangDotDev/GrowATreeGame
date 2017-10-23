@@ -36,10 +36,49 @@
 ===============================*/
 .main-enter,
 .main-leave-to {
-    opacity: 0;
+    opacity: 0!important;
 }
 
 .main-enter-active,
 .main-leave-active {
-    transition: opacity 2s ease;
+    transition: opacity 2s ease!important;
+}
+
+/*===============================
+=            progress-upgrades           =
+===============================*/
+.progress-upgrades-enter,
+.progress-upgrades-leave-to {
+    max-height: 1px;
+    overflow-y: hidden;
+}
+
+.progress-upgrades-enter-to,
+.progress-upgrades-leave {
+    max-height: 7rem;
+    overflow-y: hidden;
+}
+
+.progress-upgrades-enter-active {
+    transition: all 0.35s ease-out;
+}
+
+.progress-upgrades-leave-active {
+    transition: all 0.35s ease;
+}
+
+/*===============================
+=            active-view           =
+===============================*/
+.view-enter,
+.view-leave-to {
+    opacity: 0;
+}
+
+.view-enter-active {
+    transition: all 0.7s ease-out!important;
+}
+
+.view-leave-active {
+    transition: all 0s linear!important;
 }

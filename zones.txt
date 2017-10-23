@@ -1,0 +1,54 @@
+Zones:
+-Calm Forest
+    -Snail
+    -Mushroom
+    -Slime
+    -Stump
+    -Mano, King Snail
+    
+-Deep Forest
+    -Pig
+    -Hound
+    -Boar
+    -Wolf
+    -Panther
+    -Shelob, Great Spider
+    
+-Golem's Lair
+    -Stone Golem Jr
+    -Stone Golem
+    -Dark Stone Golem
+    -Mixed Golem
+    -Enraged Golem
+    -Elemental Golem
+    
+-Elemental Caves
+    -Air elemental
+    -Earth elemental
+    -Fire elemental
+    -Water elemental
+    -Kalimos, Primal Lord
+    
+-Lesser Dragons
+    -Dragon Whelp
+    -Dragonspawn
+    -Drakonid
+    -Drake
+    
+-Greater Dragons
+    -Dragon
+    -Wyrm
+    -Sapphiron, Frost Wyrm
+    
+-Path To Lavos
+    -Lavos Spawn
+    
+    
+
+Boss Fights:
+-Lich King (King Arthras, The Lich King)
+-Oceanic Threats (Leviathan, Kraken, Hydra)
+-The Dragon Aspects ()
+Lavos+ -> Dream Devourer -> Time Devourerer
+
+https://wow.gamepedia.com/Elemental_Lord Elemental Lord 

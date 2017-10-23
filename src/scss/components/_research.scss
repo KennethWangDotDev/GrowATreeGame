@@ -1,0 +1,45 @@
+.research {
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    padding: 1rem;
+    
+    .title {
+        font-weight: 600;
+    }
+    
+    .desc {
+        color: color($grey, 600);
+    }
+    
+    tr {
+        border-bottom: 1px solid color($grey, 300);
+        
+        &:last-child {
+            border: none;
+        }
+        
+        &:first-child td {
+            padding-top: 0;
+        }
+        
+        &:last-child td {
+            padding-bottom: 0;
+        }
+    }
+    
+    td {
+        padding-right: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+                
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+    
+    .cost button {
+        @include button(color($light-blue), color($light-blue, 800));
+        color: white;
+    }
+}

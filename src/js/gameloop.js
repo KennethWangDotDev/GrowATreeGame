@@ -1,5 +1,6 @@
-import store from './store';
+import store from '../store';
 const DEV_MODE = true;
+const DEV_SPEED = 5;
 
 window.setInterval(() => {
     
@@ -15,7 +16,7 @@ window.setInterval(() => {
             if (progress[progressName].progress_bar.running) {
                 // Then add progress based off of the increment amount
                 if (DEV_MODE) {
-                    store.commit('ADD_PROGRESS', {progressName, amount: progress[progressName].progress_bar.increment * 3});
+                    store.commit('ADD_PROGRESS', {progressName, amount: progress[progressName].progress_bar.increment * DEV_SPEED});
                 } else {
                     store.commit('ADD_PROGRESS', {progressName, amount: progress[progressName].progress_bar.increment});
                 }
