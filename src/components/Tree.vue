@@ -19,27 +19,24 @@
             :speed="1">
         </ProgressSection>
         
-        <transition name="main">
-            <ProgressSection 
-                :progress="'grow_cells'"
-                :unlock="'cells'"
-                :unlockValue="1"
-                :label="'Grow Cells'"
-                :cost="1"
-                :speed="1">
-            </ProgressSection>
-        </transition>
-        
-        <transition name="main">
-            <ProgressSection 
-                :progress="'gain_energy'"
-                :unlock="'energy'"
-                :unlockValue="1"
-                :label="'Gain Energy'"
-                :cost="1"
-                :speed="1">
-            </ProgressSection>
-        </transition>
+        <ProgressSection 
+            :progress="'grow_cells'"
+            :unlock="'cells'"
+            :unlockValue="1"
+            :label="'Grow Cells'"
+            :cost="1"
+            :speed="1">
+        </ProgressSection>
+    
+    
+        <ProgressSection 
+            :progress="'gain_energy'"
+            :unlock="'energy'"
+            :unlockValue="1"
+            :label="'Gain Energy'"
+            :cost="1"
+            :speed="1">
+        </ProgressSection>
         
     </div>
 </template>

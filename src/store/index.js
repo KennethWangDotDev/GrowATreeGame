@@ -1,303 +1,20 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import game_stages from './modules/game_stages.js';
+import resources from './modules/resources.js';
+import stats from './modules/stats.js';
+import progress from './modules/progress.js';
+import research from './modules/research.js';
+
 Vue.use(Vuex);
 
 const state = {
-    /*===================================
-    =            Game Stages            =
-    ===================================*/
-    game_stages: {
-        /*----------  Intro  ----------*/
-        planted: 1,
-        roots_emerged: 1,
-        
-        /*----------  Progress Resources  ----------*/
-        cells: 1,
-        energy: 0,
-        mana: 0,
-        lifeforce: 0,
-        
-        /*----------  Tabs  ----------*/
-        research: 1,
-        micromanagement: 0,
-    },
-    
-    
-    /*=================================
-    =            Resources            =
-    =================================*/
-    resources: {
-        nutrients: 30,
-        nutrients_max: 30,
-        cells: 30,
-        cells_max: 30,
-        energy: 0,
-        energy_max: 10,
-        mana: 0,
-        mana_max: 10,
-        lifeforce: 0,
-        lifeforce_max: 5,
-        workers: 0,
-        workers_max: 1,
-    },
-    
-    
-    /*=============================
-    =            Stats            =
-    =============================*/
-    stats: {
-        tree_size: 0,  
-    },
-    
-    
-    /*================================
-    =            Progress            =
-    ================================*/
-    progress: {
-        
-        /*----------  Emerge Roots  ----------*/
-        emerge_roots: {
-            used_count: 0,
-            progress_bar: {
-                value: 0,
-                running: 0,
-                increment: 1.25,
-            },
-        },
-        /**/
-        
-        /*----------  Gather Nutrients  ----------*/
-        gather_nutrients: {
-            used_count: 0,
-            workers: 0,
-            progress_bar: {
-                value: 0,
-                running: 0,
-                increment: 0.5,
-            },
-            production: {
-                multiplier: 1,
-                entity: 'resources.nutrients',
-                value: {
-                    modify: 1,
-                },
-            },
-            upgrades: {
-                speed: {
-                    used_count: 0,
-                    production: {
-                        multiplier: 1,
-                        entity: 'progress.gather_nutrients.progress_bar.increment',
-                        value: {
-                            modify: 0.15,
-                        },
-                    },
-                    cost: {
-                        multiplier: 1,
-                        entity: 'resources.nutrients',
-                        value: {
-                            base: 4,
-                            growth: 1.12,
-                            add: -2,
-                        },
-                        current: 2,
-                    },
-                },
-                supply: {
-                    used_count: 0,
-                    production: {
-                        multiplier: 1,
-                        entity: 'resources.nutrients_max',
-                        value: {
-                            base: 10,
-                            growth: 1.06,
-                            per_level: 5,
-                        },
-                    },
-                    cost: {
-                        multiplier: 1,
-                        entity: 'resources.cells',
-                        value: {
-                            base: 5,
-                            add: -4,
-                            growth: 1.10,
-                        },
-                        current: 1,
-                    },
-                },
-            },
-        },
-        /**/
-        
-        /*----------  Grow Cells  ----------*/
-        grow_cells: {
-            used_count: 0,
-            workers: 0,
-            progress_bar: {
-                value: 0,
-                running: 0,
-                increment: 0.25,
-            },
-            production: {
-                multiplier: 1,
-                entity: 'resources.cells',
-                value: {
-                    modify: 1,
-                },
-            },
-            cost: {
-                multiplier: 1,
-                entity: 'resources.nutrients',
-                current: 5,
-            },
-            upgrades: {
-                speed: {
-                    used_count: 0,
-                    production: {
-                        multiplier: 1,
-                        entity: 'progress.grow_cells.progress_bar.increment',
-                        value: {
-                            modify: 0.1,
-                        },
-                    },
-                    cost: {
-                        multiplier: 1,
-                        entity: 'resources.nutrients',
-                        value: {
-                            base: 10,
-                            growth: 1.10,
-                        },
-                        current: 10,
-                    },
-                },
-                supply: {
-                    used_count: 0,
-                    production: {
-                        multiplier: 1,
-                        entity: 'resources.cells_max',
-                        value: {
-                            base: 10,
-                            growth: 1.05,
-                            per_level: 5,
-                        },
-                    },
-                    cost: {
-                        multiplier: 1,
-                        entity: 'resources.cells',
-                        value: {
-                            base: 8,
-                            growth: 1.10,
-                            add: -7,
-                        },
-                        current: 1,
-                    },
-                },
-            },
-        },
-        /**/
-        
-        /*----------  Gain Energy  ----------*/
-        gain_energy: {
-            used_count: 0,
-            workers: 0,
-            progress_bar: {
-                value: 0,
-                running: 0,
-                increment: 0.1,
-            },
-            production: {
-                multiplier: 1,
-                entity: 'resources.energy',
-                value: {
-                    modify: 1,
-                },
-            },
-            cost: {
-                multiplier: 1,
-                entity: 'resources.nutrients',
-                current: 100,
-            },
-            upgrades: {
-                speed: {
-                    used_count: 0,
-                    production: {
-                        multiplier: 1,
-                        entity: 'progress.gain_energy.progress_bar.increment',
-                        value: {
-                            modify: 0.075,
-                        },
-                    },
-                    cost: {
-                        multiplier: 1,
-                        entity: 'resources.nutrients',
-                        value: {
-                            base: 100,
-                            growth: 1.12,
-                        },
-                        current: 100,
-                    },
-                },
-                supply: {
-                    used_count: 0,
-                    production: {
-                        multiplier: 1,
-                        entity: 'resources.energy_max',
-                        value: {
-                            base: 10,
-                            growth: 1.05,
-                            per_level: 5,
-                        },
-                    },
-                    cost: {
-                        multiplier: 1,
-                        entity: 'resources.cells',
-                        value: {
-                            base: 100,
-                            growth: 1.12,
-                        },
-                        current: 100,
-                    },
-                },
-            },
-        },
-        /**/
-    },
-        
-        
-    /*================================
-    =            Research            =
-    ================================*/
-    research: [
-        {
-            title: 'Grow Leaf',
-            desc: 'Enables the Micromanagement tab. Allows you access to workers among other things.',
-            production: {
-                entity: 'game_stages.micromanagement',
-                value: {
-                    modify: 1,
-                },
-            },
-            cost: {
-                entity: 'resources.nutrients',
-                current: 15,
-            },
-            unlock: 'cells',
-            purchased: 0,
-        },
-        {
-            title: 'Grow Leaf 2',
-            desc: 'Enables the Micromanagement tab. Allows you access to workers among other things.',
-            cost: {
-                entity: 'resources.cells',
-                current: 15,
-            },
-            unlock: 'unlock_grow_leaf',
-            purchased: 0,
-        },
-    ],
-    
-    
+    game_stages,
+    resources,
+    stats,
+    progress,
+    research,
     notifications: [],
 };
 
@@ -367,8 +84,8 @@ const mutations = {
         const entity = getEntity(payload.entity);
         entity.parent[entity.part] = payload.amount;
         if (payload.entity.startsWith('resources')) {
-            if (entity.parent[entity.part] > entity.parent[`${entity.part}_max`]) {
-                entity.parent[entity.part] = entity.parent[`${entity.part}_max`];
+            if (entity.parent[entity.part].current > entity.parent[entity.part].max) {
+                entity.parent[entity.part].current = entity.parent[entity.part].max;
             }
         }
     },
@@ -376,8 +93,8 @@ const mutations = {
         const entity = getEntity(payload.entity);
         entity.parent[entity.part] += payload.amount;
         if (payload.entity.startsWith('resources')) {
-            if (entity.parent[entity.part] > entity.parent[`${entity.part}_max`]) {
-                entity.parent[entity.part] = entity.parent[`${entity.part}_max`];
+            if (entity.parent[entity.part].current > entity.parent[entity.part].max) {
+                entity.parent[entity.part].current = entity.parent[entity.part].max;
             }
         }
     },
@@ -399,6 +116,9 @@ const mutations = {
     PURCHASE_RESEARCH(state, index) {
         state.research[index].purchased = 1;
     },
+    INCREMENT_UPGRADE(state, payload) {
+        state.progress[payload.progress].upgrades[payload.index].used_count += 1;
+    }
 };
 
 const actions = {
@@ -442,10 +162,10 @@ const actions = {
     },
     
     purchaseUpgrade({ commit }, payload) {
-        const upgrade = state.progress[payload.progress].upgrades[payload.upgrade];
+        const upgrade = state.progress[payload.progress].upgrades[payload.index];
         if (resolveCost(upgrade.cost, upgrade.used_count)) {
             resolveProduction(upgrade.production, upgrade.used_count);
-            commit('MUTATE_STATE_INCREASE', { entity: `progress.${payload.progress}.upgrades.${payload.upgrade}.used_count`, amount: 1 });
+            commit('INCREMENT_UPGRADE', payload);
         } else {
             this.dispatch('addNotification', `Not enough ${upgrade.cost.entity.split('.')[upgrade.cost.entity.split('.').length - 1]}.`);
         }

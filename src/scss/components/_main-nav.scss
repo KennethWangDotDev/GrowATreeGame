@@ -4,7 +4,6 @@
     .nav-box {
         display: inline-block;
         position: relative;
-        padding: 0.5rem;
         margin-right: 0.5rem;
         line-height: 0;
         
@@ -35,6 +34,11 @@
         
         &:active {
             transform: translateY(-0.2rem);
+        }
+        
+        a {
+            display: block;
+            padding: 0.5rem;
         }
     }
     
