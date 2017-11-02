@@ -3,28 +3,24 @@
 =================================*/
 const resources = {
     nutrients: {
-        current: 25,
-        max: 30,
+        current: 0,
+        max: 10,
     },
     cells: {
-        current: 25,
-        max: 30,
+        current: 0,
+        max: 10,
     },
     energy: {
         current: 0,
-        max: 30,
+        max: 10,
     },
     mana: {
         current: 0,
-        max: 30,
+        max: 10,
     },
     lifeforce: {
         current: 0,
         max: 0,
-    },
-    workers: {
-        current: 0,
-        max: 1,  
     },
 };
 

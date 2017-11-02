@@ -6,6 +6,8 @@ import resources from './modules/resources.js';
 import stats from './modules/stats.js';
 import progress from './modules/progress.js';
 import research from './modules/research.js';
+import workers from './modules/workers.js';
+import { capFirstLetter, getResourceName } from '../js/utility.js';
 
 Vue.use(Vuex);
 
@@ -15,6 +17,7 @@ const state = {
     stats,
     progress,
     research,
+    workers,
     notifications: [],
 };
 
@@ -84,8 +87,8 @@ const mutations = {
         const entity = getEntity(payload.entity);
         entity.parent[entity.part] = payload.amount;
         if (payload.entity.startsWith('resources')) {
-            if (entity.parent[entity.part].current > entity.parent[entity.part].max) {
-                entity.parent[entity.part].current = entity.parent[entity.part].max;
+            if (entity.parent.current > entity.parent.max) {
+                entity.parent.current = entity.parent.max;
             }
         }
     },
@@ -93,8 +96,8 @@ const mutations = {
         const entity = getEntity(payload.entity);
         entity.parent[entity.part] += payload.amount;
         if (payload.entity.startsWith('resources')) {
-            if (entity.parent[entity.part].current > entity.parent[entity.part].max) {
-                entity.parent[entity.part].current = entity.parent[entity.part].max;
+            if (entity.parent.current > entity.parent.max) {
+                entity.parent.current = entity.parent.max;
             }
         }
     },
@@ -167,7 +170,7 @@ const actions = {
             resolveProduction(upgrade.production, upgrade.used_count);
             commit('INCREMENT_UPGRADE', payload);
         } else {
-            this.dispatch('addNotification', `Not enough ${upgrade.cost.entity.split('.')[upgrade.cost.entity.split('.').length - 1]}.`);
+            this.dispatch('addNotification', `Not enough ${getResourceName(upgrade.cost.entity)}.`);
         }
     },
     
@@ -176,7 +179,25 @@ const actions = {
             resolveProduction(payload.research.production);
             commit('PURCHASE_RESEARCH', payload.index);
         } else {
-            this.dispatch('addNotification', `Not enough ${upgrade.cost.entity.split('.')[upgrade.cost.entity.split('.').length - 1]}.`);
+            this.dispatch('addNotification', `Not enough ${getResourceName(payload.research.cost.entity)}.`);
+        }
+    },
+    
+    addWorker({ commit }, progress) {
+        if (state.workers.idle > 0) {
+            commit('MUTATE_STATE_INCREASE', { entity: 'workers.idle', amount: -1 });
+            commit('MUTATE_STATE_INCREASE', { entity: `progress.${progress}.workers`, amount: 1 });
+        } else {
+            this.dispatch('addNotification', `No available idle worker.`);
+        }
+    },
+    
+    removeWorker({ commit }, progressName) {
+        if (state.progress[progressName].workers > 0) {
+            commit('MUTATE_STATE_INCREASE', { entity: 'workers.idle', amount: 1 });
+            commit('MUTATE_STATE_INCREASE', { entity: `progress.${progressName}.workers`, amount: -1 });
+        } else {
+            this.dispatch('addNotification', `No worker to remove.`);
         }
     },
     
@@ -191,36 +212,42 @@ const actions = {
         // Check notifications
         if (progressName === 'emerge_roots') {
             if (progress.used_count === 1) { this.dispatch('addNotification', 'You are the seed for a tree. You have the potential to grow into a large and beautiful tree.'); }
-            if (progress.used_count === 2) { this.dispatch('addNotification', 'But currently you are still but a seed. Your first step is to grow out your roots.'); }
+            if (progress.used_count === 2) { this.dispatch('addNotification', 'Your first step is to grow out your roots.'); }
             if (progress.used_count === 3) { this.dispatch('addNotification', 'You sense that your roots are close to emerging.'); }
             if (progress.used_count === 4) { this.dispatch('addNotification', 'Just a little more!'); }
             if (progress.used_count === 5) { 
-                this.dispatch('addNotification', 'Your roots have fully emerged! Tree roots are very important. They anchor the tree in the soil, keeping it straight and stable, and absorb water from the soil. Tree roots also take nutrients and chemicals out of the soil and use them to produce what they need for the tree’s growth, development, and repair.'); 
+                this.dispatch('addNotification', 'Congratulations, you have passed the initial stage! Now, the next step is to gather nutrients.');
                 this.dispatch('clearGameStage', 'roots_emerged');
             }      
         }
         
         if (progressName === 'gather_nutrients') {
             if (progress.used_count === 1) {
-                this.dispatch('addNotification', 'Gathering nutrients is a slow process. You can speed things up by growing out your roots!'); 
+                this.dispatch('addNotification', 'Tree roots gather nutrients from soil and use them to produce the tree’s growth, development, and repair.'); 
             }
-            if (progress.used_count === 3) {
-                this.dispatch('clearGameStage', 'cells');
-            }
-            if (progress.used_count === 4) {
-                this.dispatch('addNotification', 'You are still a seed covered in the dirt, but you are close to sprouting upwards...'); 
-            }
-            if (progress.used_count === 8) {
-                this.dispatch('addNotification', 'A small stem has emerged from your seed, pointing upwards. You are almost about to experience fresh air.'); 
+            if (progress.used_count === 2) {
+                this.dispatch('addNotification', 'Gathering nutrients can be slow. You can speed things up by toggling the section and upgrading the speed. It costs 2 nutrients initially, but is a worthy investment.'); 
             }
             if (progress.used_count === 10) {
-                this.dispatch('addNotification', 'You have officially passed the seed stage and are a baby tree! Now you can grow bigger and become the best tree there is!'); 
+                this.dispatch('clearGameStage', 'cells');
+                this.dispatch('addNotification', 'You can use cells to upgrade the maximum number of nutrients you can store.'); 
+            }
+        }
+        
+        if (progressName === 'grow_cells') {
+            if (progress.used_count === 1) {
+                this.dispatch('addNotification', 'You have unlocked the research tab!'); 
                 this.dispatch('clearGameStage', 'research');
             }
         }
         
-        // gather_nutrients
-        //store.commit('')
+        if (progressName === 'create_worker') {
+            if (progress.used_count === 1) {
+                this.dispatch('addNotification', 'Your worker has finished! Try assigning it to a task!'); 
+                this.dispatch('addNotification', 'There is no more content left in this demo. Thank you for playing! :)'); 
+            }
+        }
+        
     },
 };
 

@@ -5,7 +5,7 @@
                 <tr v-if="research.purchased === 0 && isUnlocked(research)">
                     <td class="title">{{ research.title }}</td>
                     <td class="desc">{{ research.desc }}</td>
-                    <td class="cost"><button @click="$store.dispatch('purchaseResearch', { research, index })">{{ research.cost.current }} {{ research.cost.entity.split('.')[research.cost.entity.split('.').length - 1] }}</button></td>
+                    <td class="cost"><button @click="$store.dispatch('purchaseResearch', { research, index })">{{ research.cost.current }} {{ capFirstLetter(getResourceName(research.cost.entity)) }}</button></td>
                 </tr>
             </template>
             <h1 v-if="researchesAvailable() === false">No researches available.</h1>
@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import { capFirstLetter, getResourceName } from '../js/utility.js';
+
 export default {
     methods: {
         isUnlocked(research) {
@@ -32,6 +34,8 @@ export default {
             });
             return available;  
         },
+        capFirstLetter,
+        getResourceName,
     },
     data() {
         return {

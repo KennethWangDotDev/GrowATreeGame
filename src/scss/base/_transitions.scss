@@ -39,9 +39,12 @@
     opacity: 0!important;
 }
 
-.main-enter-active,
-.main-leave-active {
+.main-enter-active {
     transition: opacity 2s ease!important;
+}
+
+.main-leave-active {
+    transition: none!important;
 }
 
 /*===============================

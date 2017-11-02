@@ -40,7 +40,7 @@ const gather_nutrients = {
             used_count: 0,
             production: {
                 multiplier: 1,
-                entity: ' resources.nutrients.max',
+                entity: 'resources.nutrients.max',
                 value: {
                     base: 10,
                     growth: 1.06,
@@ -49,7 +49,7 @@ const gather_nutrients = {
             },
             cost: {
                 multiplier: 1,
-                entity: 'resources.cells',
+                entity: 'resources.cells.current',
                 value: {
                     base: 5,
                     add: -4,

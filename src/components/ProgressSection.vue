@@ -1,10 +1,11 @@
 <template>
+
     <transition name="main">
         <div :class="progress" v-if="unlockCheck">
             <div class="main">
                 
                 <!-- Gather Button -->
-                <button class="main-button" :disabled="progressState.progress_bar.value > 0" @click="$store.dispatch('startGather', progress)">{{ label }}</button>
+                <button class="main-button" :disabled="progressState.progress_bar.value > 0" @click="$store.dispatch('startGather', progress)">{{ buttonText }}</button>
                 
                 <!-- Cost -->
                 <h6 v-if="cost" class="cost">[Cost: {{ progressCost.current }} {{ getResourceName(progressCost.entity) }}]</h6>
@@ -16,7 +17,10 @@
                 <progress :value="progressState.progress_bar.value" max="100"></progress>
                 
                 <!-- Speed -->
-                <p v-if="speed" class="speed">SPD: {{ (100 / (40 * progressState.progress_bar.increment)).toFixed(3) }}s</p>
+                <p class="bar">
+                    <span v-if="speed"><strong>Speed:</strong> {{ incrementToSpeed(progressState.progress_bar.increment) }}s</span>
+                    <span v-if="workable && game_stages.micromanagement"><strong>Workers:</strong> {{ progressState.workers}}&nbsp;&nbsp;<p class="worker_button" @click="$store.dispatch('removeWorker', progress)">[ - ]</p>&nbsp;<p class="worker_button" @click="$store.dispatch('addWorker', progress)">[ + ]</p></span>
+                </p>
                 
                 <!-- Toggle Upgrades Section -->
                 <transition name="progress-upgrades">
@@ -37,13 +41,14 @@
 </template>
 
 <script>
-import { capFirstLetter, getResourceName } from '../js/utility.js';
+import { capFirstLetter, getResourceName, incrementToSpeed } from '../js/utility.js';
 
 export default {
-    props: ['progress', 'label', 'desc', 'speed', 'unlock', 'unlockValue', 'cost'],
+    props: ['progress', 'label', 'desc', 'speed', 'unlock', 'unlockValue', 'cost', 'workable'],
     methods: {
         capFirstLetter,
         getResourceName,
+        incrementToSpeed,
     },
     computed: {
         unlockCheck() {
@@ -73,11 +78,19 @@ export default {
                 return false;
             }
         },
+        buttonText() {
+            if (this.$store.state.progress[this.progress].workers > 0) {
+                return `${this.label} (Auto)`;
+            } else {
+                return this.label;
+            }
+        }
     },
     data() {
         return {
             toggled: false,
             progressState: this.$store.state.progress[this.progress],
+            game_stages: this.$store.state.game_stages,
         }
     },
 }

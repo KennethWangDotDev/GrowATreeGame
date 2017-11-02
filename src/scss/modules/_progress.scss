@@ -8,6 +8,7 @@
     padding: 0;
     width: 100%;
     vertical-align: middle;
+    transition: none!important;
 
     &::-webkit-progress-bar {
         background-color: $bg-color;

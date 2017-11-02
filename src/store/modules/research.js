@@ -12,20 +12,10 @@ const research = [
             },
         },
         cost: {
-            entity: 'resources.nutrients',
+            entity: 'resources.nutrients.current',
             current: 15,
         },
         unlock: 'cells',
-        purchased: 0,
-    },
-    {
-        title: 'Grow Leaf 2',
-        desc: 'Enables the Micromanagement tab. Allows you access to workers among other things.',
-        cost: {
-            entity: 'resources.cells',
-            current: 15,
-        },
-        unlock: 'unlock_grow_leaf',
         purchased: 0,
     },
 ];

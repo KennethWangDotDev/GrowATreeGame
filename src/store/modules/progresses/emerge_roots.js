@@ -3,7 +3,7 @@ const emerge_roots = {
     progress_bar: {
         value: 0,
         running: 0,
-        increment: 1.25,
+        increment: 1.6,
     },
 };
 

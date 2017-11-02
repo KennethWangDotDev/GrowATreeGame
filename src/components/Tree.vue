@@ -16,7 +16,8 @@
             :unlockValue="1"
             :label="'Gather Nutrients'"
             :cost="0"
-            :speed="1">
+            :speed="1"
+            :workable="1">
         </ProgressSection>
         
         <ProgressSection 
@@ -25,7 +26,8 @@
             :unlockValue="1"
             :label="'Grow Cells'"
             :cost="1"
-            :speed="1">
+            :speed="1"
+            :workable="1">
         </ProgressSection>
     
     
@@ -35,7 +37,8 @@
             :unlockValue="1"
             :label="'Gain Energy'"
             :cost="1"
-            :speed="1">
+            :speed="1"
+            :workable="1">
         </ProgressSection>
         
     </div>

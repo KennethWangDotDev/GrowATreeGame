@@ -1,0 +1,8 @@
+.micromanagement {
+    transition: all 1s ease;
+    
+    .create_worker {
+        @include progress-section($teal);
+    }
+
+}

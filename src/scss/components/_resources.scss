@@ -18,9 +18,24 @@
         margin-right: 0.5rem;
     }
     
+    section {
+        @include margin-bottom(1);
+        @include padding-top(1);
+        border-top: 1px solid color($grey, 300);
+        
+        &:nth-child(1) {
+            border: none;
+            padding-top: 0;
+        }
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
     .title {
         @include size(h6);
-        @include margin-bottom(0.5);
+        @include margin-bottom(0.25);
         font-weight: 500;
     }
     

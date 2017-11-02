@@ -3,19 +3,21 @@
 ===================================*/
 const game_stages = {
     /*----------  Intro  ----------*/
-    planted: 1,
-    roots_emerged: 1,
+    planted: 0,
+    roots_emerged: 0,
     
     /*----------  Progress Resources  ----------*/
     nutrients: 1,
-    cells: 1,
+    cells: 0,
     energy: 0,
     mana: 0,
     lifeforce: 0,
+    
+    /*----------  Left Resources Section  -----------*/
     workers: 0,
     
     /*----------  Tabs  ----------*/
-    research: 1,
+    research: 0,
     micromanagement: 0,
 };
 
