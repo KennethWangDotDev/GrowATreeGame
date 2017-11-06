@@ -8,4 +8,4 @@ I hope to revolutionize UI design, game design, and code efficiency of increment
 
 # Work In Progress
 
-Currently a work-in-progress; view the current demo at [treegame.io](treegame.io).
+Currently a work-in-progress; view the current demo at [treegame.io](http://treegame.io).
